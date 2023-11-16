@@ -11,12 +11,35 @@ class NotificationPage extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         backgroundColor: Colors.white,
-        appBar: PreferredSize(
-          preferredSize: Size(428, 79),
-          child: Container(
-            width: 428,
-            height: 79,
-            child: AppBar(
+        body: CustomScrollView(
+          slivers: <Widget>[
+            SliverAppBar(
+              elevation: 0.0,
+              expandedHeight: 79,
+              backgroundColor: Colors.white,
+              leading: GestureDetector(
+                onTap: () {
+                  Navigator.of(context).pop();
+                },
+                child: Container(
+                  margin: EdgeInsets.only(left: 30, top: 36),
+                  width: 34,
+                  height: 34,
+                  child: SvgPicture.asset('assets/icons/Icons.svg'),
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                ),
+              ),
+              actions: [
+                Container(
+                  margin: EdgeInsets.only(right: 19, top: 36),
+                  width: 34,
+                  height: 34,
+                  child: SvgPicture.asset('assets/icons/tabler-icon-dots.svg'),
+                ),
+              ],
               title: Container(
                 margin: EdgeInsets.only(left: 7, top: 41),
                 child: Text(
@@ -29,88 +52,63 @@ class NotificationPage extends StatelessWidget {
                   ),
                 ),
               ),
-              backgroundColor: Colors.white,
-              elevation: 0.0,
-              leading: GestureDetector(
-                onTap: () {
-                  Navigator.of(context).pop();
-                },
-                child: Container(
-                  margin: EdgeInsets.only(left: 30, top: 36),
-                  width: 34, // Set the desired width.
-                  height: 34, // Set the desired height.
-                  child: SvgPicture.asset('assets/icons/Icons.svg'),
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(20),
-                  ),
+            ),
+            SliverToBoxAdapter(
+              child: Padding(
+                padding: EdgeInsets.only(right: 30, left: 26),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Container(
+                      margin: EdgeInsets.only(top: 26),
+                      child: Text(
+                        "New",
+                        style: TextStyle(
+                          fontSize: 16.0,
+                          fontWeight: FontWeight.w700,
+                          height: 1.5,
+                        ),
+                      ),
+                    ),
+                    CustomNotificationProfiles(),
+                    CustomNotificationSingle(),
+                    Text(
+                      "Yesterday",
+                      style: TextStyle(
+                        fontSize: 16.0,
+                        fontWeight: FontWeight.w700,
+                        height: 1.5,
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    CustomNotificationProfiles(),
+                    CustomNotificationSingle(),
+                    CustomNotificationProfiles(),
+                    CustomNotificationSingle(),
+                    Text(
+                      "Last 7 days",
+                      style: TextStyle(
+                        fontSize: 16.0,
+                        fontWeight: FontWeight.w700,
+                        height: 1.5,
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    CustomNotificationProfiles(),
+                    CustomNotificationSingle(),
+                    CustomNotificationProfiles(),
+                    CustomNotificationSingle(),
+                    CustomNotificationProfiles(),
+                    CustomNotificationSingle(),
+                  ],
                 ),
               ),
-              actions: [
-                Container(
-                  margin: EdgeInsets.only(right: 19, top: 36),
-                  width: 34, // Set the desired width.
-                  height: 34, // Set the desired height.
-                  child: SvgPicture.asset('assets/icons/tabler-icon-dots.svg'),
-                ),
-              ],
             ),
-          ),
-        ),
-        body: SingleChildScrollView(
-          child: Padding(
-            padding: EdgeInsets.only(right: 31, left: 30),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Container(
-                  margin: EdgeInsets.only(top: 26),
-                  child: Text(
-                    "New",
-                    style: TextStyle(
-                      fontSize: 16.0,
-                      fontWeight: FontWeight.w700,
-                      height: 1.5,
-                    ),
-                  ),
-                ),
-                CustomNotificationProfiles(),
-                CustomNotificationSingle(),
-                Text(
-                  "Yesterday",
-                  style: TextStyle(
-                    fontSize: 16.0,
-                    fontWeight: FontWeight.w700,
-                    height: 1.5,
-                  ),
-                ),
-                const SizedBox(
-                  height: 10,
-                ),
-                CustomNotificationProfiles(),
-                CustomNotificationSingle(),
-                CustomNotificationProfiles(),
-                CustomNotificationSingle(),
-                Text(
-                  "Last 7 days",
-                  style: TextStyle(
-                    fontSize: 16.0,
-                    fontWeight: FontWeight.w700,
-                    height: 1.5,
-                  ),
-                ),
-                const SizedBox(
-                  height: 10,
-                ),
-                CustomNotificationProfiles(),
-                CustomNotificationSingle(),
-                CustomNotificationProfiles(),
-                CustomNotificationSingle(),
-                CustomNotificationProfiles(),
-                CustomNotificationSingle(),
-              ],
-            ),
-          ),
+          ],
         ),
       ),
     );
