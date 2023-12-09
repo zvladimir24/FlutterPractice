@@ -6,7 +6,7 @@ class CustomNotificationProfiles extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 38,
+      height: 50,
       margin: EdgeInsets.only(top: 5, bottom: 6),
       child: Row(
         children: [
@@ -36,36 +36,36 @@ class CustomNotificationProfiles extends StatelessWidget {
               ],
             ),
           ),
-
-          // Second Column - Text
-          SizedBox(
-            width: 265,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                RichText(
-                  maxLines: 2,
-                  text: TextSpan(
-                    text: "Username, username2, username 3 and 34 others ",
-                    style: TextStyle(
-                      color: Color(0xFF173F5F),
-                      fontWeight: FontWeight.w500,
-                      height: 1.16667,
-                    ),
-                    children: [
-                      TextSpan(
-                        text: "liked your post",
-                        style: TextStyle(
-                          color: Color(0xFF173F5F),
-                          fontWeight: FontWeight.w300,
-                          height: 1.41667,
-                        ),
+          Expanded(
+            child: SizedBox(
+              width: 265,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  RichText(
+                    maxLines: 2,
+                    text: TextSpan(
+                      text: "Username, username2, username 3 and 34 others ",
+                      style: TextStyle(
+                        color: Color(0xFF173F5F),
+                        fontWeight: FontWeight.w500,
+                        height: 1.16667,
                       ),
-                    ],
+                      children: [
+                        TextSpan(
+                          text: "liked your post",
+                          style: TextStyle(
+                            color: Color(0xFF173F5F),
+                            fontWeight: FontWeight.w300,
+                            height: 1.41667,
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
 

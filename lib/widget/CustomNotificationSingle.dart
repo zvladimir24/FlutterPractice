@@ -6,15 +6,15 @@ class CustomNotificationSingle extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 38,
-      margin: EdgeInsets.only(top: 5, bottom: 6),
+      height: 50,
+      padding: EdgeInsets.only(top: 5, bottom: 6),
       child: Row(
         children: [
           // First Column - Single CircleAvatar
           SizedBox(
             width: 50,
             child: Align(
-              alignment: Alignment.bottomCenter,
+              alignment: Alignment.center,
               child: CircleAvatar(
                 radius: 15,
                 backgroundImage: NetworkImage(
